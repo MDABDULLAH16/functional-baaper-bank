@@ -23,7 +23,10 @@
 
 document.getElementById("btn-deposit").addEventListener("click", function () {
   const newDepositAmount = getInputValueById("deposit-field");
-
+  if (isNaN(newDepositAmount)) {
+    alert("Please input valid number");
+    return;
+  }
   const previousDepositTotal = getElementValueById("total-deposit");
   const previousMainTotal = getElementValueById("balance");
   const totalDeposit = newDepositAmount + previousDepositTotal;
